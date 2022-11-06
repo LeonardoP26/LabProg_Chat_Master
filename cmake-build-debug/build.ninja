@@ -55,6 +55,12 @@ build CMakeFiles/LabProg_Chat_Master.dir/main.cpp.obj: CXX_COMPILER__LabProg_Cha
   OBJECT_DIR = CMakeFiles\LabProg_Chat_Master.dir
   OBJECT_FILE_DIR = CMakeFiles\LabProg_Chat_Master.dir
 
+build CMakeFiles/LabProg_Chat_Master.dir/Messaggio.cpp.obj: CXX_COMPILER__LabProg_Chat_Master_Debug C$:/Users/leona/OneDrive/Università/Laboratorio$ Programmazione/LabProg-Chat-Master/Messaggio.cpp || cmake_object_order_depends_target_LabProg_Chat_Master
+  DEP_FILE = CMakeFiles\LabProg_Chat_Master.dir\Messaggio.cpp.obj.d
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles\LabProg_Chat_Master.dir
+  OBJECT_FILE_DIR = CMakeFiles\LabProg_Chat_Master.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target LabProg_Chat_Master
@@ -63,7 +69,7 @@ build CMakeFiles/LabProg_Chat_Master.dir/main.cpp.obj: CXX_COMPILER__LabProg_Cha
 #############################################
 # Link the executable LabProg_Chat_Master.exe
 
-build LabProg_Chat_Master.exe: CXX_EXECUTABLE_LINKER__LabProg_Chat_Master_Debug CMakeFiles/LabProg_Chat_Master.dir/main.cpp.obj
+build LabProg_Chat_Master.exe: CXX_EXECUTABLE_LINKER__LabProg_Chat_Master_Debug CMakeFiles/LabProg_Chat_Master.dir/main.cpp.obj CMakeFiles/LabProg_Chat_Master.dir/Messaggio.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\LabProg_Chat_Master.dir
