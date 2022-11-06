@@ -1,0 +1,3 @@
+C:/Users/leona/OneDrive/Università/Laboratorio Programmazione/LabProg-Chat-Master/cmake-build-debug/CMakeFiles/LabProg_Chat_Master.dir
+C:/Users/leona/OneDrive/Università/Laboratorio Programmazione/LabProg-Chat-Master/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/leona/OneDrive/Università/Laboratorio Programmazione/LabProg-Chat-Master/cmake-build-debug/CMakeFiles/rebuild_cache.dir
