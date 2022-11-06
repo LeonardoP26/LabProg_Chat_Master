@@ -6,6 +6,7 @@
 #define LABPROG_CHAT_MASTER_SUBJECT_H
 
 
+#include <memory>
 #include "Observer.h"
 
 class Subject {
