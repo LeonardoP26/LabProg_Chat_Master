@@ -12,11 +12,11 @@ Chat::~Chat() {
 
 }
 
-void Chat::subscribe(std::shared_ptr<Observer, o>) {
+void Chat::subscribe(std::shared_ptr<Observer> o) {
 
 }
 
-void Chat::unsubscribe(std::shared_ptr<Observer, o>) {
+void Chat::unsubscribe(std::shared_ptr<Observer> o) {
 
 }
 

@@ -19,9 +19,9 @@ public:
 
     virtual ~Chat();
 
-
-    virtual void subscribe(std::shared_ptr<Observer o>) override;
-    virtual void unsubscribe(std::shared_ptr<Observer o>) override;
+    //TODO aggiungere messaggi, leggere chat
+    virtual void subscribe(std::shared_ptr<Observer> o) override;
+    virtual void unsubscribe(std::shared_ptr<Observer> o) override;
     virtual void notify() override;
 
 
