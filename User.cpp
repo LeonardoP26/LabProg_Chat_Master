@@ -17,10 +17,6 @@ User::~User() {
 }
 
 std::shared_ptr<Chat> User::createChat(User &u) {
-  /*  if(this->getName() == u.getName()){
-        std::cout << "Non puoi creare una chat con te stesso" << std::endl;
-    }
-    */
     Chat *c = new Chat((*this), u);
     std::shared_ptr<Chat> chatptr = std::make_shared<Chat>(*c);
     this->addChat(chatptr,(u));

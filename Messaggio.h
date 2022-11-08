@@ -13,6 +13,7 @@ class Messaggio {
 public:
     Messaggio(std::string s, std::string r, std::string mess, bool visual = false);
 
+    //Metodi che non servono a molto
     const std::string &getText() const;
 
     void setText(const std::string &text);
@@ -29,9 +30,6 @@ public:
 
     void setVisual(bool visual);
 
-    time_t getTime() const;
-
-    void setTime(time_t times);
 
     bool operator==(const Messaggio &mc) const;
     bool operator!=(const Messaggio &mc) const;
@@ -41,7 +39,6 @@ private:
     std::string receiver;
     std::string text;
     bool visual;
-    time_t times;
 };
 
 

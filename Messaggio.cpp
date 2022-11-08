@@ -9,7 +9,7 @@
 Messaggio::Messaggio(std::string s, std::string r, std::string mess, bool visual) : sender(s),
     receiver(r), text(mess), visual(visual)
 {
-    time(&times);
+
 }
 
 const std::string &Messaggio::getText() const {
@@ -42,14 +42,6 @@ bool Messaggio::isVisual() const {
 
 void Messaggio::setVisual(bool visual) {
     Messaggio::visual = visual;
-}
-
-time_t Messaggio::getTime() const {
-    return times;
-}
-
-void Messaggio::setTime(time_t times) {
-    Messaggio::times = times;
 }
 
 

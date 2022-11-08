@@ -18,7 +18,6 @@ public:
 
     ~User();
 
-    //chat create per utente
     std::shared_ptr<Chat> createChat(User &u);
 
     void addChat(std::shared_ptr<Chat> c, User &u);

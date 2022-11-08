@@ -7,10 +7,11 @@
 
 
 #include <list>
-
+#include <vector>
 
 #include "Subject.h"
 #include "User.h"
+#include "Messaggio.h"
 
 class User;
 class Chat :public Subject{
@@ -19,16 +20,29 @@ public:
 
     virtual ~Chat();
 
-    //TODO aggiungere messaggi, leggere chat
+
+    void addMessage(const Messaggio &Mess);
+
+    void readChat();
+
+    void unreadChats();
+
+
+
+
+
+
+
     virtual void subscribe(std::shared_ptr<Observer> o) override;
     virtual void unsubscribe(std::shared_ptr<Observer> o) override;
     virtual void notify() override;
 
 
 private:
-    std::string us1;
-    std::string us2;
+    std::string user1;
+    std::string user2;
     std::list<std::shared_ptr<Observer>> observers;
+    std::vector<Messaggio> messages;
 };
 
 
