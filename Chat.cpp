@@ -20,7 +20,7 @@ void Chat::subscribe(std::shared_ptr<Observer> o) {
 }
 
 void Chat::unsubscribe(std::shared_ptr<Observer> o) {
-    observers.remove(o);
+    observers.pop_back();
 }
 
 void Chat::notify() {
@@ -39,7 +39,7 @@ void Chat::addMessage(const Messaggio &Mess) {
 
     if(user1 == Mess.getReceiver()){
         this->notify();
-    }
+    }//TODO add in entrambe le chat
 }
 
 void Chat::readChat() {
@@ -52,7 +52,6 @@ void Chat::readChat() {
                 m.setVisual(true);
             }
         }
-        this->notify();
     }else{
         std::cout << "Non ci sono messaggi in questa chat" << std::endl;
     }
@@ -65,5 +64,16 @@ void Chat::unreadChats() {
             i++;
         }
     }
-    std::cout << "\n" << user1 << " ha " << i << " messaggi non letti nella chat con " << user2 << std::endl;
+    if(i == 1) {
+        std::cout << "\n" << user1 << " ha " << i << " nuovo messaggio nella chat con " << user2 << std::endl;
+    }else{
+        std::cout << "\n" << user1 << " ha " << i << " nuovi messaggi nella chat con " << user2 << std::endl;
+
+    }
+}
+
+void Chat::removeChat(User u) {
+   for(int i = 0 ; i = messages.size(); i++) {
+        messages.pop_back();
+    }
 }

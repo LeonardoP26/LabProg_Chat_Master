@@ -7,8 +7,9 @@
 
 #include <memory>
 #include <string>
-#include "Chat.h"
 #include <map>
+#include "Chat.h"
+
 
 
 class Chat;
@@ -21,12 +22,13 @@ public:
     std::shared_ptr<Chat> createChat(User &u);
 
     void addChat(std::shared_ptr<Chat> c, User &u);
-    void removeChat(const User &u);
+    void removeChat(std::shared_ptr<Chat> rm, User u);
     void activeChat();
     const std::string &getName() const;
 
 private:
     std::string name;
+    std::shared_ptr<Chat> asd;
     std::map <std::string,std::shared_ptr<Chat>> chats;
 };
 

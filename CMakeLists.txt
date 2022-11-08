@@ -3,4 +3,4 @@ project(LabProg_Chat_Master)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(LabProg_Chat_Master main.cpp Subject.h Observer.h Messaggio.h Messaggio.cpp Chat.cpp Chat.h User.cpp User.h)
+add_executable(LabProg_Chat_Master main.cpp Subject.h Observer.h Messaggio.h Messaggio.cpp Chat.cpp Chat.h User.cpp User.h MessageNotification.cpp MessageNotification.h)

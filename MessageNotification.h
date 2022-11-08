@@ -1,0 +1,29 @@
+//
+// Created by leona on 08/11/2022.
+//
+
+#ifndef LABPROG_CHAT_MASTER_MESSAGENOTIFICATION_H
+#define LABPROG_CHAT_MASTER_MESSAGENOTIFICATION_H
+
+
+#include <memory>
+
+#include "Observer.h"
+#include "Chat.h"
+
+class MessageNotification : public Observer{
+public:
+    explicit MessageNotification(std::shared_ptr<Chat> chatSubject) : chat(chatSubject){}
+
+    ~MessageNotification() override;
+
+    void attach() override;
+    void detach() override;
+    void update() override;
+
+private:
+    std::shared_ptr<Chat> chat;
+};
+
+
+#endif //LABPROG_CHAT_MASTER_MESSAGENOTIFICATION_H

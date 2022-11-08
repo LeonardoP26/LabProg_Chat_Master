@@ -23,14 +23,11 @@ public:
 
     void addMessage(const Messaggio &Mess);
 
+    void removeChat(User u);
+
     void readChat();
 
     void unreadChats();
-
-
-
-
-
 
 
     virtual void subscribe(std::shared_ptr<Observer> o) override;
