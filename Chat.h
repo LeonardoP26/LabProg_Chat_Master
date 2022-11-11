@@ -23,7 +23,7 @@ public:
 
     void addMessage(const Messaggio &Mess);
 
-    void removeChat(User u);
+    void removeChat();
 
     void readChat();
 

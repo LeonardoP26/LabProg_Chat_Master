@@ -28,8 +28,8 @@ public:
 
 private:
     std::string name;
-    std::shared_ptr<Chat> asd;
     std::map <std::string,std::shared_ptr<Chat>> chats;
+    std::map <std::string,std::string> couples;
 };
 
 
