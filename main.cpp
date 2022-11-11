@@ -55,14 +55,32 @@ int main() {
     ptr->readChat();
 
     Leo.removeChat(ptr, Filippo);
+    Leo.removeChat(ptrG, Giuseppe);
 
-
+    sleep(2);
     Leo.activeChat();
     Filippo.activeChat();
     Giuseppe.activeChat();
+    sleep(2);
+
+    if(ptr != NULL) {
+        ptr->readChat();
+    }
+    if(ptrG != NULL) {
+        ptrG->readChat();
+    }
 
 
-
+    sleep(2);
+    std::shared_ptr<Chat> ptrG1 = Giuseppe.createChat(Leo);
+    std::shared_ptr<Chat> ptr1 = Filippo.createChat(Leo);
+    std::shared_ptr<Chat> ptr2 = Filippo.createChat(Giuseppe);
+    ptrG1->addMessage(mess5);
+    ptrG1->readChat();
+    sleep(2);
+    Leo.activeChat();
+    Filippo.activeChat();
+    Giuseppe.activeChat();
 
     return 0;
 }

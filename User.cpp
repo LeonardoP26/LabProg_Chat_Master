@@ -18,40 +18,62 @@ User::~User() {
 }
 
 std::shared_ptr<Chat> User::createChat(User &u) {
-
-    for(auto &c:couples) {
-        if(this->getName() == c.first && u.getName() == c.second || this->getName() == c.second && u.getName() == c.first) {
+    for(auto &co:u.couples) {
+        if(this->getName() == co.first && u.getName() == co.second || this->getName() == co.second && u.getName() == co.first) {
             std::cout << "Esiste gia una chat tra i due" << std::endl;
             throw std::out_of_range("Esiste gia una chat tra i due");
         }
     }
-    Chat *c = new Chat((*this), u);
-    std::shared_ptr<Chat> chatptr = std::make_shared<Chat>(*c);
-    this->addChat(chatptr, u);
-    u.addChat(chatptr, (*this));
 
-    MessageNotification nm(chatptr);
-    nm.attach();
+        Chat *c = new Chat((*this), u);
+        std::shared_ptr<Chat> chatptr = std::make_shared<Chat>(*c);
+        this->addChat(chatptr, u);
 
-    return chatptr;
+        MessageNotification nm(chatptr);
+        nm.attach();
+
+
+        return chatptr;
 }
 
 
 void User::addChat(std::shared_ptr<Chat> c, User &u) {
     chats.insert(make_pair(u.getName(),c));
     couples.insert(make_pair(u.getName(),this->getName()));
+
+
+    u.chats.insert(make_pair(this->getName(),c));
+    u.couples.insert(make_pair(this->getName(),u.getName()));
+
+
 }
 
 
-void User::removeChat(std::shared_ptr<Chat> rm, User u) {
-    auto i = chats.find(u.getName());
-    chats.erase(i);
+void User::removeChat(std::shared_ptr<Chat> &rm, User &u) {
+    auto c = chats.find(u.getName());
+    chats.erase(c);
+
+    auto rev = u.chats.find(this->getName());
+    u.chats.erase(rev);
+
+
+
+    auto ex = u.couples.find(this->getName());
+    u.couples.erase(ex);
+
+    auto ex1 = couples.find(u.getName());
+    couples.erase(ex1);
+
+
 
     MessageNotification nm1(rm);
     nm1.detach();
 
     rm->removeChat();
-//TODO remove inverso
+
+    rm = NULL;
+    delete &rm;
+
 }
 
 
@@ -62,6 +84,8 @@ const std::string &User::getName() const {
 void User::activeChat() {
     if(chats.size() == 1){
         std::cout << "\n" << getName() << " ha "  << chats.size() << " chat attiva: " << std::endl;
+    }else if(chats.size() == 0){
+        std::cout << "\n" << getName() << " ha "  << chats.size() << " chat attive. " << std::endl;
     }else{
         std::cout << "\n" << getName() << " ha "  << chats.size() << " chat attive: " << std::endl;
     }
