@@ -5,6 +5,7 @@
 
 #include "User.h"
 #include "Messaggio.h"
+#include "Chat.h"
 
 int main() {
     User Leo("Leonardo");

@@ -13,7 +13,7 @@ class Messaggio {
 public:
     Messaggio(std::string s, std::string r, std::string mess, bool visual = false);
 
-    //Metodi che non servono a molto
+    //Metodi che servono per test
     const std::string &getText() const;
 
     void setText(const std::string &text);
