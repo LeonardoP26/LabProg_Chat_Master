@@ -7,9 +7,9 @@
 
 #include <memory>
 #include <string>
+
 #include <map>
 #include "Chat.h"
-
 
 
 class Chat;
@@ -25,9 +25,9 @@ public:
     void removeChat(std::shared_ptr<Chat> &rm, User &u);
     void activeChat();
     const std::string &getName() const;
+    int getNumChats();
 
 private:
-
     std::string name;
     std::map <std::string,std::shared_ptr<Chat>> chats;
     std::map <std::string,std::string> couples;

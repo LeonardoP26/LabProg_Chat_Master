@@ -12,3 +12,5 @@ TEST(TestMessaggio,CostruttoreMessaggio){
     ASSERT_EQ(false,m.isVisual());
     ASSERT_EQ("ciao",m.getText());
 }
+
+

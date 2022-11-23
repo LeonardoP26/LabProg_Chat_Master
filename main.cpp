@@ -1,7 +1,5 @@
-#include <iostream>
 #include <unistd.h>
 #include <memory>
-
 
 #include "User.h"
 #include "Messaggio.h"
@@ -64,10 +62,10 @@ int main() {
     Giuseppe.activeChat();
     sleep(2);
 
-    if(ptr != NULL) {
+    if(ptr != nullptr) {
         ptr->readChat();
     }
-    if(ptrG != NULL) {
+    if(ptrG != nullptr) {
         ptrG->readChat();
     }
 

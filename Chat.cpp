@@ -70,15 +70,14 @@ void Chat::unreadChats() {
     int i = 0;
     int a = 0;
     for(auto &m : messages){
-
-        if(m.getSender() == user2 && !m.isVisual()) {
+        if(m.getSender() == user2 && !m.isVisual()) {   //i tiene conto dei messaggi mandati user 2
             i++;
         }
 
-        if (m.getSender() == user1 && !m.isVisual()) {
+        if (m.getSender() == user1 && !m.isVisual()) {  //Se è il sender allora vuol dire che ha letto i messaggi prima, azzero i
             a++;
-            i = 0; //Se è il sender allora vuol dire che ha letto i messaggi prima
-        } else if (i > 0 && a > 0) {
+            i = 0;
+        } else if (i > 0 && a > 0) {                    //User 1 sta mandando un messaggio quindi ha letto e azzero a
             a = 0;
         }
     }
@@ -104,4 +103,8 @@ void Chat::removeChat() {
    for(int i = 0 ; messages.size(); i++) {
         messages.pop_back();
     }
+}
+
+int Chat::getNumMess() {
+     return messages.size();
 }

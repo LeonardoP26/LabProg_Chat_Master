@@ -7,7 +7,6 @@
 
 
 #include <string>
-#include <ctime>
 
 class Messaggio {
 public:
@@ -29,10 +28,6 @@ public:
     bool isVisual() const;
 
     void setVisual(bool visual);
-
-
-    bool operator==(const Messaggio &mc) const;
-    bool operator!=(const Messaggio &mc) const;
 
 private:
     std::string sender;
