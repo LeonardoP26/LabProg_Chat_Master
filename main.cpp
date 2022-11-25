@@ -1,10 +1,9 @@
-#include <iostream>
 #include <unistd.h>
 #include <memory>
 
-
 #include "User.h"
 #include "Messaggio.h"
+#include "Chat.h"
 
 int main() {
     User Leo("Leonardo");
@@ -63,10 +62,10 @@ int main() {
     Giuseppe.activeChat();
     sleep(2);
 
-    if(ptr != NULL) {
+    if(ptr != nullptr) {
         ptr->readChat();
     }
-    if(ptrG != NULL) {
+    if(ptrG != nullptr) {
         ptrG->readChat();
     }
 

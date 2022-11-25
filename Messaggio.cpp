@@ -43,15 +43,3 @@ bool Messaggio::isVisual() const {
 void Messaggio::setVisual(bool visual) {
     Messaggio::visual = visual;
 }
-
-
-
-bool Messaggio::operator==(const Messaggio &mc) const {
-    return (sender == mc.sender && receiver == mc.receiver && text == mc.text);
-}
-
-bool Messaggio::operator!=(const Messaggio &mc) const {
-    return !(mc == *this);
-}
-
-

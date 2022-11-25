@@ -20,7 +20,6 @@ public:
 
     virtual ~Chat();
 
-
     void addMessage(const Messaggio &Mess);
 
     void removeChat();
@@ -28,6 +27,8 @@ public:
     void readChat();
 
     void unreadChats();
+
+    int getNumMess();
 
 
     virtual void subscribe(std::shared_ptr<Observer> o) override;
