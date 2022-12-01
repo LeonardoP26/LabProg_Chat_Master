@@ -24,8 +24,6 @@ public:
 
     void removeChat();
 
-    void readChat();
-
     int mexNonLetti(const std::string&);
 
     int getNumMess();
@@ -33,6 +31,9 @@ public:
     Messaggio getMess(int);
 
     void setAllMessVisual(const std::string&);
+
+    std::string getUser1();
+    std::string getUser2();
 
 
 

@@ -76,4 +76,5 @@ TEST(UserChatTest, NumMess) {
 
 
     ASSERT_EQ(ptr->getNumMess(), 1);
+    ASSERT_EQ(ptr->mexNonLetti("Giovanni"), 1);
 }

@@ -9,14 +9,15 @@
 #include <memory>
 #include "Messaggio.h"
 #include "Chat.h"
+#include "User.h"
 
 class Display {
 public:
     static void dNotif(int i, const Messaggio& pMess);
 
-    void messNonLetti();
+    static void activeChat(User user, std::map<std::string,std::shared_ptr<Chat>>&);
 
-    void readChat();
+    static void readChat(const std::shared_ptr<Chat>&);
 };
 
 

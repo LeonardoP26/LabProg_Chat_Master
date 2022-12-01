@@ -7,6 +7,7 @@
 #include "User.h"
 #include "MessageNotification.h"
 #include "Chat.h"
+#include "Display.h"
 
 User::User(std::string name) : name(name){
 
@@ -35,7 +36,7 @@ std::shared_ptr<Chat> User::createChat(User &u) {
 }
 
 
-void User::addChat(std::shared_ptr<Chat> c, User &u) {
+void User::addChat(const std::shared_ptr<Chat>& c, User &u) {
     chats.insert(make_pair(u.getName(),c));
     couples.insert(make_pair(u.getName(),this->getName()));
 
@@ -67,7 +68,7 @@ void User::removeChat(std::shared_ptr<Chat> &rm, User &u) {
     //Toglie messaggi da chat
     rm->removeChat();
 
-    rm = NULL;
+    rm = nullptr;
     delete &rm;
 }
 
@@ -75,17 +76,8 @@ const std::string &User::getName() const {
     return name;
 }
 
-void User::activeChat() {   //TODO dare numero chat
-    if(chats.size() == 1){
-        std::cout << "\n" << getName() << " ha "  << chats.size() << " chat attiva: " << std::endl;
-    }else if(chats.size() == 0){
-        std::cout << "\n" << getName() << " ha "  << chats.size() << " chat attive. " << std::endl;
-    }else{
-        std::cout << "\n" << getName() << " ha "  << chats.size() << " chat attive: " << std::endl;
-    }
-    for(auto &c:chats) {
-        std::cout << "-" << c.first << std::endl;
-    }
+void User::activeChat() {
+    Display::activeChat(*this, chats);
 }
 
 int User::getNumChats() {

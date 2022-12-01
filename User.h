@@ -21,7 +21,7 @@ public:
 
     std::shared_ptr<Chat> createChat(User &u);
 
-    void addChat(std::shared_ptr<Chat> c, User &u);
+    void addChat(const std::shared_ptr<Chat>& c, User &u);
     void removeChat(std::shared_ptr<Chat> &rm, User &u);
     void activeChat();
     const std::string &getName() const;

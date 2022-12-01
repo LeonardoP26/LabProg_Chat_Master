@@ -1,11 +1,11 @@
 //
 // Created by leona on 06/11/2022.
 //
-#include <unistd.h>
+
 #include <iostream>
 
 #include "Chat.h"
-#include "Display.h"
+
 
 
 
@@ -49,23 +49,6 @@ void Chat::addMessage(const Messaggio &Mess) {
     }
 }
 
-void Chat::readChat() {         //TODO Non deve farlo lui
-    if(!messages.empty()) {
-        std::cout << "\nChat di " << user1 << " con " << user2 << ":" << std::endl;
-
-        for (auto &m: messages) {
-            std::cout << m.getSender() << ": " << m.getText() << std::endl;
-
-
-            if (m.getReceiver() == user1) {
-                m.setVisual(true);
-            }
-        }
-
-    }else{
-        std::cout << "\nNon ci sono messaggi nella chat tra " << user1 << " e " << user2 << std::endl;
-    }
-}
 
 int Chat::mexNonLetti(const std::string& user) {
     int count= 0;
@@ -92,7 +75,6 @@ Messaggio Chat::getMess(int pos) {
     return messages[pos];
 }
 
-
 void Chat::setAllMessVisual(const std::string& user){
     for(auto &m : messages) {
         if (m.getReceiver() == user && !m.isVisual()) {
@@ -101,3 +83,10 @@ void Chat::setAllMessVisual(const std::string& user){
     }
 }
 
+std::string Chat::getUser1() {
+    return user1;
+}
+
+std::string Chat::getUser2() {
+    return user2;
+}

@@ -4,6 +4,7 @@
 #include "User.h"
 #include "Messaggio.h"
 #include "Chat.h"
+#include "Display.h"
 
 int main() {
     User Leo("Leonardo");
@@ -12,7 +13,6 @@ int main() {
 
 
     std::shared_ptr<Chat> ptr = Leo.createChat(Filippo);
-    //std::shared_ptr<Chat> ptr1 = Filippo.createChat(Leo); // esiste già
     std::shared_ptr<Chat> ptrG = Giuseppe.createChat(Leo);
 
     Leo.activeChat();
@@ -39,7 +39,7 @@ int main() {
     Messaggio mess11("Giuseppe", "Leonardo" , "Tutto bene?");
     Messaggio mess12("Leonardo", "Giuseppe" , "Si");
 
-
+    Display::readChat(ptr);
     ptr->addMessage(mess1);
     ptr->addMessage(mess2);
     ptr->addMessage(mess3);
@@ -55,33 +55,26 @@ int main() {
     ptr->addMessage(mess7);
     ptr->addMessage(mess8);
 
+    Display::readChat(ptr);
 
-    ptr->readChat();
 
     Leo.removeChat(ptr, Filippo);
     Leo.removeChat(ptrG, Giuseppe);
 
-    sleep(2);
+
     Leo.activeChat();
     Filippo.activeChat();
     Giuseppe.activeChat();
-    sleep(2);
-
-    if(ptr != nullptr) {
-        ptr->readChat();
-    }
-    if(ptrG != nullptr) {
-        ptrG->readChat();
-    }
 
 
-    sleep(2);
+    Display::readChat(ptr);
+
     std::shared_ptr<Chat> ptrG1 = Giuseppe.createChat(Leo);
     std::shared_ptr<Chat> ptr1 = Filippo.createChat(Leo);
     std::shared_ptr<Chat> ptr2 = Filippo.createChat(Giuseppe);
     ptrG1->addMessage(mess11);
-    ptrG1->readChat();
-    sleep(2);
+    Display::readChat(ptrG1);
+
     Leo.activeChat();
     Filippo.activeChat();
     Giuseppe.activeChat();
