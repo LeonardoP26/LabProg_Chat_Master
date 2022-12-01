@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "Chat.h"
+#include "Display.h"
 
 
 
@@ -24,37 +25,37 @@ void Chat::unsubscribe(std::shared_ptr<Observer> o) {
     observers.pop_back();
 }
 
-void Chat::notify() {
-    for(const auto& obs:observers)
-        obs->update();
+void Chat::notify(std::string user) {
+    for(const auto& obs:observers) {
+        obs->update(mexNonLetti(user), messages.at(messages.size() - 1));
+    }
 }
 
 void Chat::addMessage(const Messaggio &Mess) {
     if( ((user1 == Mess.getSender()) && (user2 == Mess.getReceiver())) || ((user2 == Mess.getSender()) && (user1 == Mess.getReceiver())))
     {
-        if((user1 == Mess.getSender())){
-            std::cout << "\n" << user1 << " sta scrivendo a " << user2 << "..." << std::endl;
-        }else{
-            std::cout << "\n" << user2 << " sta scrivendo a " << user1 << "..." << std::endl;
-        }
-
-        sleep(1);
         messages.push_back(Mess);
     }else {
         throw std::out_of_range("Errore: mittente o destinatario errati");
     }
 
-    if(user1 == Mess.getReceiver() || user1 == Mess.getSender()){ //notifica entrambi
-        this->notify();
+    if(user2 == Mess.getReceiver()){ //dNotif
+        this->notify(user2);
+        this->setAllMessVisual(user1);
+    }else
+    if(user1 == Mess.getReceiver()){ //dNotif
+        this->notify(user1);
+        this->setAllMessVisual(user2);
     }
 }
 
-void Chat::readChat() {
+void Chat::readChat() {         //TODO Non deve farlo lui
     if(!messages.empty()) {
         std::cout << "\nChat di " << user1 << " con " << user2 << ":" << std::endl;
 
         for (auto &m: messages) {
             std::cout << m.getSender() << ": " << m.getText() << std::endl;
+
 
             if (m.getReceiver() == user1) {
                 m.setVisual(true);
@@ -66,41 +67,18 @@ void Chat::readChat() {
     }
 }
 
-void Chat::unreadChats() {
-    int i = 0;
-    int a = 0;
-    for(auto &m : messages){
-        if(m.getSender() == user2 && !m.isVisual()) {   //i tiene conto dei messaggi mandati user 2
-            i++;
-        }
-
-        if (m.getSender() == user1 && !m.isVisual()) {  //Se è il sender allora vuol dire che ha letto i messaggi prima, azzero i
-            a++;
-            i = 0;
-        } else if (i > 0 && a > 0) {                    //User 1 sta mandando un messaggio quindi ha letto e azzero a
-            a = 0;
+int Chat::mexNonLetti(const std::string& user) {
+    int count= 0;
+    for(auto &m : messages) {
+        if (m.getReceiver() == user && !m.isVisual()) {
+            count++;
         }
     }
-
-    if(i>0) {
-        if (i == 1) {
-            std::cout << "" << user1 << " ha " << i << " nuovo messaggio nella chat con " << user2 << std::endl;
-        } else {
-            std::cout << "" << user1 << " ha " << i << " nuovi messaggi nella chat con " << user2 << std::endl;
-        }
-    }
-    if(a>0){
-        if (a == 1) {
-            std::cout << "" << user2 << " ha " << a << " nuovo messaggio nella chat con " << user1 << std::endl;
-        } else {
-            std::cout << "" << user2 << " ha " << a << " nuovi messaggi nella chat con " << user1 << std::endl;
-        }
-    }
-    sleep(1);
+    return count;
 }
 
 void Chat::removeChat() {
-   for(int i = 0 ; messages.size(); i++) {
+   for(int i = 0 ; !messages.empty(); i++) {
         messages.pop_back();
     }
 }
@@ -108,3 +86,18 @@ void Chat::removeChat() {
 int Chat::getNumMess() {
      return messages.size();
 }
+
+Messaggio Chat::getMess(int pos) {
+    pos = pos - 1;
+    return messages[pos];
+}
+
+
+void Chat::setAllMessVisual(const std::string& user){
+    for(auto &m : messages) {
+        if (m.getReceiver() == user && !m.isVisual()) {
+            m.setVisual(true);
+        }
+    }
+}
+

@@ -10,6 +10,7 @@
 
 #include "Observer.h"
 #include "Chat.h"
+#include "Messaggio.h"
 
 class MessageNotification : public Observer{
 public:
@@ -19,7 +20,7 @@ public:
 
     void attach() override;
     void detach() override;
-    void update() override;
+    void update(int, Messaggio) override;
 
 private:
     std::shared_ptr<Chat> chat;

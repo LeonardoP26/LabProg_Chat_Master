@@ -40,6 +40,6 @@ bool Messaggio::isVisual() const {
     return visual;
 }
 
-void Messaggio::setVisual(bool visual) {
-    Messaggio::visual = visual;
+void Messaggio::setVisual(bool state) {
+    Messaggio::visual = state;
 }

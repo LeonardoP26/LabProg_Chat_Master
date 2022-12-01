@@ -60,7 +60,7 @@ void User::removeChat(std::shared_ptr<Chat> &rm, User &u) {
     auto ex1 = couples.find(u.getName());
     couples.erase(ex1);
 
-    //Toglie notifica
+    //Toglie dNotif
     MessageNotification nm1(rm);
     nm1.detach();
 
@@ -75,7 +75,7 @@ const std::string &User::getName() const {
     return name;
 }
 
-void User::activeChat() {
+void User::activeChat() {   //TODO dare numero chat
     if(chats.size() == 1){
         std::cout << "\n" << getName() << " ha "  << chats.size() << " chat attiva: " << std::endl;
     }else if(chats.size() == 0){
