@@ -24,16 +24,16 @@ public:
 
     void removeChat();
 
-    int mexNonLetti(const std::string&);
+    int mexNonLetti(const std::string&) const;
 
-    int getNumMess();
+    int getNumMess() const;
 
-    Messaggio getMess(int);
+    Messaggio getMess(int) const;
 
     void setAllMessVisual(const std::string&);
 
-    std::string getUser1();
-    std::string getUser2();
+    std::string getUser1() const;
+    std::string getUser2() const;
 
 
 

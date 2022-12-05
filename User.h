@@ -25,7 +25,7 @@ public:
     void removeChat(std::shared_ptr<Chat> &rm, User &u);
     void activeChat();
     const std::string &getName() const;
-    int getNumChats();
+    int getNumChats() const;
 
 private:
     std::string name;

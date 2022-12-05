@@ -8,7 +8,7 @@
 #include "../Chat.h"
 
 
-TEST(UserChatTest, GenChat){
+TEST(UserChatTest, GenProbChat){
     User Leonardo("Leonardo");
     User Giovanni("Giovanni");
     Messaggio a("Leo", "Giovanni", "Ciao come stai");
@@ -48,18 +48,20 @@ TEST(UserChatTest, SpecMess) {
 TEST(UserChatTest, NumChats) {
     User Leonardo("Leonardo");
     User Giovanni("Giovanni");
+    User Filippo("Filippo");
     Messaggio a("Leonardo", "Giovanni", "Ciao come stai");
     Messaggio b("Giovanni", "Leonardo", "Tutto bene");
 
     std::shared_ptr<Chat> ptr = Leonardo.createChat(Giovanni);
+    std::shared_ptr<Chat> ptr1 = Giovanni.createChat(Filippo);
 
     ASSERT_EQ(Leonardo.getNumChats(), 1);
-    ASSERT_EQ(Giovanni.getNumChats(), 1);
+    ASSERT_EQ(Giovanni.getNumChats(), 2);
 
     Leonardo.removeChat(ptr, Giovanni);
 
     ASSERT_EQ(Leonardo.getNumChats(), 0);
-    ASSERT_EQ(Giovanni.getNumChats(), 0);
+    ASSERT_EQ(Giovanni.getNumChats(), 1);
 }
 
 
@@ -73,7 +75,6 @@ TEST(UserChatTest, NumMess) {
 
     std::shared_ptr<Chat> ptr = Leonardo.createChat(Giovanni);
     ptr->addMessage(a);
-
 
     ASSERT_EQ(ptr->getNumMess(), 1);
     ASSERT_EQ(ptr->mexNonLetti("Giovanni"), 1);

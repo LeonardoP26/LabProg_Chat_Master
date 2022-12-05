@@ -80,6 +80,6 @@ void User::activeChat() {
     Display::activeChat(*this, chats);
 }
 
-int User::getNumChats() {
+int User::getNumChats() const{
     return chats.size();
 }

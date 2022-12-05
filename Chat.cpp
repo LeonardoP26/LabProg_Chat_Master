@@ -50,7 +50,7 @@ void Chat::addMessage(const Messaggio &Mess) {
 }
 
 
-int Chat::mexNonLetti(const std::string& user) {
+int Chat::mexNonLetti(const std::string& user) const{
     int count= 0;
     for(auto &m : messages) {
         if (m.getReceiver() == user && !m.isVisual()) {
@@ -66,11 +66,11 @@ void Chat::removeChat() {
     }
 }
 
-int Chat::getNumMess() {
+int Chat::getNumMess() const{
      return messages.size();
 }
 
-Messaggio Chat::getMess(int pos) {
+Messaggio Chat::getMess(int pos) const{
     pos = pos - 1;
     return messages[pos];
 }
@@ -83,10 +83,10 @@ void Chat::setAllMessVisual(const std::string& user){
     }
 }
 
-std::string Chat::getUser1() {
+std::string Chat::getUser1() const{
     return user1;
 }
 
-std::string Chat::getUser2() {
+std::string Chat::getUser2() const{
     return user2;
 }
