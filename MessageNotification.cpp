@@ -2,7 +2,10 @@
 // Created by leona on 08/11/2022.
 //
 
+#include <iostream>
 #include "MessageNotification.h"
+#include "Display.h"
+
 
 MessageNotification::~MessageNotification() {
 
@@ -18,6 +21,6 @@ void MessageNotification::detach() {
     chat->unsubscribe(ptr);
 }
 
-void MessageNotification::update() {
-    chat->unreadChats();
+void MessageNotification::update(int i, Messaggio pMess) {
+    Display::dNotif(i, pMess);
 }

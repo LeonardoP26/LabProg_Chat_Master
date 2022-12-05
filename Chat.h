@@ -24,16 +24,22 @@ public:
 
     void removeChat();
 
-    void readChat();
+    int mexNonLetti(const std::string&) const;
 
-    void unreadChats();
+    int getNumMess() const;
 
-    int getNumMess();
+    Messaggio getMess(int) const;
+
+    void setAllMessVisual(const std::string&);
+
+    std::string getUser1() const;
+    std::string getUser2() const;
+
 
 
     virtual void subscribe(std::shared_ptr<Observer> o) override;
     virtual void unsubscribe(std::shared_ptr<Observer> o) override;
-    virtual void notify() override;
+    virtual void notify(std::string) override;
 
 
 private:
