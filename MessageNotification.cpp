@@ -22,5 +22,5 @@ void MessageNotification::detach() {
 }
 
 void MessageNotification::update(int i, Messaggio pMess) {
-    Display::dNotif(i, pMess);
+    dNotif(i, pMess);
 }

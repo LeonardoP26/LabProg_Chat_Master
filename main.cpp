@@ -39,7 +39,7 @@ int main() {
     Messaggio mess11("Giuseppe", "Leonardo" , "Tutto bene?");
     Messaggio mess12("Leonardo", "Giuseppe" , "Si");
 
-    Display::readChat(ptr);
+    readChat(ptr);
     ptr->addMessage(mess1);
     ptr->addMessage(mess2);
     ptr->addMessage(mess3);
@@ -55,7 +55,7 @@ int main() {
     ptr->addMessage(mess7);
     ptr->addMessage(mess8);
 
-    Display::readChat(ptr);
+    readChat(ptr);
 
 
     Leo.removeChat(ptr, Filippo);
@@ -67,13 +67,13 @@ int main() {
     Giuseppe.activeChat();
 
 
-    Display::readChat(ptr);
+    readChat(ptr);
 
     std::shared_ptr<Chat> ptrG1 = Giuseppe.createChat(Leo);
     std::shared_ptr<Chat> ptr1 = Filippo.createChat(Leo);
     std::shared_ptr<Chat> ptr2 = Filippo.createChat(Giuseppe);
     ptrG1->addMessage(mess11);
-    Display::readChat(ptrG1);
+    readChat(ptrG1);
 
     Leo.activeChat();
     Filippo.activeChat();

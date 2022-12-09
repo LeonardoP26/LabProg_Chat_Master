@@ -6,7 +6,7 @@ add_subdirectory(Test)
 include_directories(Test/lib/)
 
 set(HEADER_FILES MessageNotification.h Messaggio.h Observer.h Subject.h Chat.h User.h Display.h)
-set(SOURCE_FILES Messaggio.cpp Chat.cpp User.cpp MessageNotification.cpp Display.cpp)
+set(SOURCE_FILES Messaggio.cpp Chat.cpp User.cpp MessageNotification.cpp)
 add_executable(LabProg_Chat_Master main.cpp)
 
 
