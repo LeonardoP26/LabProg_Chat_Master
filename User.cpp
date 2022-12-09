@@ -77,7 +77,7 @@ const std::string &User::getName() const {
 }
 
 void User::activeChat() {
-    Display::activeChat(*this, chats);
+    dActiveChat(*this, chats);
 }
 
 int User::getNumChats() const{
